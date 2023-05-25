@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --main-font-size: 16px;
+}
+html {
+  font-size: var(--main-font-size);
+}
+body {
+  font-family: 'Kanit', sans-serif;
+  background-color: rgb(30 41 59);
+}
+.header {
+  background-color: white;
+  padding: 2rem;
+  display: flex; 
+  align-items: center; 
+   justify-content: flex-start;
+  width: 25%;
+}
+.header p {
+  font-size: 1.5rem;
+}
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+.character-profile:hover {
+  border: 0.2rem solid rgb(252 211 77);
+  cursor: pointer;
+}
+
+.character-profileTwo:hover {
+  border: 0.2rem solid rgb(255, 123, 0);
+  cursor: pointer;
+}
