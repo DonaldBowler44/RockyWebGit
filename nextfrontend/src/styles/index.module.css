@@ -6,6 +6,7 @@
   width: 100%;
   height: 94%;
   position: relative;
+  
 }
 
 .left {
@@ -15,6 +16,7 @@
 .doubleheadercont{
   display: flex;
   flex-direction: row;
+  margin-left: 100px;
 }
 
 .buttStyle {
@@ -27,7 +29,7 @@
   font-size: 1rem;
   font-weight: bold;
   height: 20%;
-  margin-left: 20px;
+  margin-left: 60px;
   margin-right: 20px;
   margin-top: 20px;
 }
@@ -39,6 +41,8 @@
 .butandResultstab {
   display: flex;
   flex-direction: column;
+  margin-left: 50px;
+  margin-right: 100px;
 }
 
 .resTab{
@@ -46,6 +50,14 @@
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
-  height: 65%;
-  width: 75%;
+  height: 75%;
+  width: 105%;
+  font-size: 18px;
+}
+
+.splitSect {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-bottom: 40px;
 }

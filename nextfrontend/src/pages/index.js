@@ -149,7 +149,8 @@ export default function HomePage() {
         <>
             <div className="container mx-auto">
                 <main>
-                    <div classname="boxerone"><h1 style={{ color: 'white' }}>For Boxer 1:</h1></div>
+                    <div className={styles.splitSect}>
+                    <div classname="boxerone"><h1 style={{ color: 'white' }}>Boxer One Menu</h1></div>
                     <section className="grid grid-cols-6">
                         {data.map((character) => (
                             <div
@@ -165,7 +166,9 @@ export default function HomePage() {
                                     />
                                 </div>
 
-                                <div className={calcCharStanceColor(character.stance)}>
+                                <div className={calcCharStanceColor(character.stance)} 
+                                  style={{ fontSize: "8.4px" }}
+                                >
                                     <p className="text-white text-center font-bold uppercase">
                                         {character.name}
                                     </p>
@@ -173,7 +176,7 @@ export default function HomePage() {
                             </div>
                         ))}
                     </section>
-                    <div classname="boxerone"><h1 style={{ color: 'white' }}>For Boxer 2:</h1></div>
+                    <div classname="boxerone"><h1 style={{ color: 'white' }}>Boxer Two Menu</h1></div>
                     <section className="grid grid-cols-6">
                         {data.map((character) => (
                             <div
@@ -185,11 +188,13 @@ export default function HomePage() {
                                     <Image
                                         src={character.img}
                                         alt={character.name}
-                                        style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                                        style={{ objectFit: "cover", width: "100%", height: "100%", }}
                                     />
                                 </div>
 
-                                <div className={calcCharStanceColor(character.stance)}>
+                                <div className={calcCharStanceColor(character.stance)}
+                                 style={{ fontSize: "8.4px" }}
+                                >
                                     <p className="text-white text-center font-bold uppercase">
                                         {character.name}
                                     </p>
@@ -197,6 +202,7 @@ export default function HomePage() {
                             </div>
                         ))}
                     </section>
+                    </div>
                 </main>
 
                 {/* this is where double div starts */}
