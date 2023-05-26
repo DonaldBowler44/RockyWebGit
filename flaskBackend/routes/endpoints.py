@@ -1,6 +1,8 @@
-from flask import Blueprint, jsonify
-from models.characters import Character
+from flask import Blueprint, jsonify, request
+from models.characters import Character, db
+from models.user import userSchema
 from controllers.calculations import elo_rate_system
+from controllers.postRegister import register_user, get_regis_user
 
 routes_blueprint = Blueprint('routes', __name__)
 
@@ -37,3 +39,11 @@ def get_character(id):
 @routes_blueprint.route('/characters/<int:id1>/<int:id2>', methods=['GET'])
 def elo_rate_system_route(id1,id2):
     return elo_rate_system(id1,id2)
+
+@routes_blueprint.route('/register', methods=['POST'])
+def register_user_rout():
+    return register_user()
+
+@routes_blueprint.route('/register', methods=['GET'])
+def get_regis_user_rout():
+    return jsonify(get_regis_user())

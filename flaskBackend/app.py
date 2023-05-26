@@ -2,6 +2,7 @@ from flask import Flask
 from dotenv import load_dotenv
 import os
 from models.characters import Character, db
+from models.user import userSchema
 from flask_migrate import Migrate
 from routes.endpoints import routes_blueprint
 from subprocess import run
@@ -17,6 +18,7 @@ def create_app():
 
     db.init_app(app)
     migrate = Migrate(app, db)
+    migrate.init_app(app, db)
 
     @app.cli.command("runserver")
     def run_server():
