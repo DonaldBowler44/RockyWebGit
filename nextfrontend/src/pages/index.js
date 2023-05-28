@@ -150,7 +150,7 @@ export default function HomePage() {
             <div className="container mx-auto">
                 <main>
                     <div className={styles.splitSect}>
-                    <div classname="boxerone"><h1 style={{ color: 'white' }}>Boxer One Menu</h1></div>
+                    <div className="boxerone"><h1 style={{ color: 'white' }}>Boxer One Menu</h1></div>
                     <section className="grid grid-cols-6">
                         {data.map((character) => (
                             <div

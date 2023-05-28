@@ -24,6 +24,7 @@ def register_user():
         email = request.form.get('email')
         password = request.form.get('password')
 
+        print("Entered email:", email)
         # hash the password
         hashed_password = hash_password(password)
 

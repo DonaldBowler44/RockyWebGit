@@ -3,6 +3,7 @@ from models.characters import Character, db
 from models.user import userSchema
 from controllers.calculations import elo_rate_system
 from controllers.postRegister import register_user, get_regis_user
+from controllers.postLogin import login_user
 
 routes_blueprint = Blueprint('routes', __name__)
 
@@ -47,3 +48,7 @@ def register_user_rout():
 @routes_blueprint.route('/register', methods=['GET'])
 def get_regis_user_rout():
     return jsonify(get_regis_user())
+
+@routes_blueprint.route('/login', methods=['POST'])
+def login_user_rout():
+    return login_user()

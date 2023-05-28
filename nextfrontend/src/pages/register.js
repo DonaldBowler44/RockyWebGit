@@ -15,9 +15,18 @@ export default function RegisterPage({ existingEmails }) {
         e.preventDefault();
 
         try {
-            await registerUser(email, password);
+
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('password', password);
+            const response = await registerUser(formData);
+            if (response.error) {
+              setError(response.exception.message);
+            } else {
+              // Login successful, redirect to the desired page
+              router.push('/login'); // Replace '/' with the desired page URL
+            }
             //registration successfull, redirect to index.js
-            router.push('/');
         } catch (error) {
             setError(error.message);
         }

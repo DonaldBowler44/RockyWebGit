@@ -43,16 +43,16 @@ export const charResults = async (id1, id2) => {
 
 //auth routes
 
-export const registerUser = async (email, password) => {
+export const registerUser = async (formData) => {
     try {
-        const response = await apiClient.post('/register', {
-            email: email,
-            password: password,
-        });
+        const response = await apiClient.post('/register', formData);
 
         return response.data;
-    } catch (error) {
-        throw new Error('Registration failed. Please try again.');
+    } catch (exception) {
+        return {
+            error: true,
+            exception
+        };
     }
 };
 
@@ -62,5 +62,18 @@ export const getExistingEmails = async () => {
         return response.data.emails;
     } catch (error) {
         throw new Error('Failed to fetch existing emails.');
+    }
+};
+
+export const login = async (formData) => {
+    try {
+        const response = await apiClient.post("/login", formData);
+
+        return response.data;
+    } catch (exception) {
+        return {
+            error: true,
+            exception
+        };
     }
 };
