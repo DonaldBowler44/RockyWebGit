@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import regstyles from "../styles/register.module.css";
 import { useRouter } from 'next/router';
 import { registerUser, getExistingEmails } from '@/api';
+import RedirectInput from '@/components/redirectInputs';
 
 
 export default function RegisterPage({ existingEmails }) {
@@ -32,41 +33,29 @@ export default function RegisterPage({ existingEmails }) {
         }
     };
 
+    const handleEmailChange = (e) => {
+      setEmail(e.target.value);
+    };
+
+    const handlePasswordChange = (e) => {
+      setPassword(e.target.value);
+    };
+
     return (
-        <div>
-      {/* Registration form */}
-      <h2>Sign up</h2>
-      <form onSubmit={handleRegister}>
-        <input
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
+      <section className="flex justify-center items-center h-screen">
+      <div className="shadow-lg p-6 bg-cyan-500 rounded">
+      <h1 className="text-center font-bold text-white">Register</h1>
+      <form onSubmit={handleRegister} className="text-center">
+        <RedirectInput
+          email={email}
+          password={password}
+          handleEmailChange={handleEmailChange}
+          handlePasswordChange={handlePasswordChange}
         />
-        <br />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <br />
-        <input type="submit" value="Signup" />
+        <input type="submit" value="Login" className="mt-4 bg-cyan-400 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded" />
       </form>
-
-      {/* Error message */}
-      {error && <p>{error}</p>}
-
-      {/* Existing emails */}
-      <h3>Existing Emails:</h3>
-      <ul>
-        {existingEmails.map((email, index) => (
-          <li key={index}>{email}</li>
-        ))}
-      </ul>
     </div>
+    </section>
     )
 }
 
